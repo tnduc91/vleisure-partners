@@ -1,0 +1,37 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "module": "amd",
+    "moduleResolution": "node",
+    "target": "es5",
+    "sourceMap": true,
+    "outDir": "dist",
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "allowJs": true,
+    "allowUnusedLabels": true,
+    "removeComments": true,
+    "lib": [
+      "dom",
+      "es5",
+      "es2015.promise",
+      "es2015.iterable",
+      "es2016"
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "@src/*": [ "src/*" ],
+      "@infrastructure/*": [ "src/infrastructure/*" ],
+      "@proxy/*": [ "src/proxy/*" ],
+      "@app/*": [ "src/app/*" ],
+      "@components/*": [ "src/app/shared/components/*" ],
+    }
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "pretty": true
+}

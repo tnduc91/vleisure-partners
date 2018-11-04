@@ -1,0 +1,7 @@
+﻿{
+  "defaultSeverity": "warning",
+  "rules": {
+    "quotemark": [ true, "double" ],
+    "semicolon": [true, "always", "ignore-bound-class-methods"]
+  }
+}
