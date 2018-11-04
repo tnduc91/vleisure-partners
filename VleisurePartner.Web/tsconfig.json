@@ -24,7 +24,7 @@
       "@infrastructure/*": [ "src/infrastructure/*" ],
       "@proxy/*": [ "src/proxy/*" ],
       "@app/*": [ "src/app/*" ],
-      "@components/*": [ "src/app/shared/components/*" ],
+      "@components/*": [ "src/app/shared/components/*" ]
     }
   },
   "include": [
