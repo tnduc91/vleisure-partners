@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VleisurePartner.Domain", "V
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VleisurePartner.EF", "VleisurePartner.EF\VleisurePartner.EF.csproj", "{2F346257-10EF-48D8-A3BD-27ABBCACABFE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VleisurePartner.EF.Generator", "VleisurePartner.EF.Generator\VleisurePartner.EF.Generator.csproj", "{DE69D214-F979-4001-AF3B-C81DB2095831}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2F346257-10EF-48D8-A3BD-27ABBCACABFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F346257-10EF-48D8-A3BD-27ABBCACABFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F346257-10EF-48D8-A3BD-27ABBCACABFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE69D214-F979-4001-AF3B-C81DB2095831}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE69D214-F979-4001-AF3B-C81DB2095831}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE69D214-F979-4001-AF3B-C81DB2095831}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE69D214-F979-4001-AF3B-C81DB2095831}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
