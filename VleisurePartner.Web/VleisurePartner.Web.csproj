@@ -254,7 +254,7 @@
     <Content Include="favicon.ico" />
     <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="assets\css\Site.css" />
+    <None Include="assets\css\site.scss" />
     <Content Include="postcss.config.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -316,10 +316,7 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="tsconfig.json" />
     <Content Include="tslint.json" />
@@ -333,6 +330,11 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Unity.config" />
+    <Content Include="src\proxy\controllers.tst" />
+    <Content Include="src\proxy\enums.tst" />
+    <Content Include="src\proxy\models.tst" />
+    <Content Include="src\app\shared\modals\main.vue" />
+    <Content Include="src\app\home\main.vue" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -340,10 +342,7 @@
     <Folder Include="assets\js\" />
     <Folder Include="Models\" />
     <Folder Include="Services\" />
-    <Folder Include="src\app\" />
-    <Folder Include="src\infrastructure\" />
-    <Folder Include="src\proxy\" />
-    <Folder Include="src\shared\components\" />
+    <Folder Include="src\app\shared\components\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
@@ -375,7 +374,25 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+    <TypeScriptCompile Include="src\infrastructure\config\config.ts" />
+    <TypeScriptCompile Include="src\infrastructure\config\router.ts" />
+    <TypeScriptCompile Include="src\infrastructure\OperationResult.ts" />
+    <TypeScriptCompile Include="src\infrastructure\transport\httpservice.ts" />
     <TypeScriptCompile Include="src\main.ts" />
+    <TypeScriptCompile Include="src\app\shared\filters\filters.ts" />
+    <TypeScriptCompile Include="src\app\shared\modals\stores\modalState.ts" />
+    <TypeScriptCompile Include="src\app\shared\modals\stores\modalStore.ts" />
+    <TypeScriptCompile Include="src\app\shared\modals\VueModal.ts" />
+    <TypeScriptCompile Include="src\app\shared\plugins\Dialogs\confirmDialog.ts" />
+    <TypeScriptCompile Include="src\app\shared\plugins\Dialogs\index.d.ts" />
+    <TypeScriptCompile Include="src\app\shared\plugins\Notification\index.d.ts" />
+    <TypeScriptCompile Include="src\app\shared\plugins\Notification\notification.ts" />
+    <TypeScriptCompile Include="src\proxy\HomeController.ts">
+      <DependentUpon>controllers.tst</DependentUpon>
+      <CustomToolNamespace>Controllers\HomeController.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\themes.ts" />
+    <TypeScriptCompile Include="src\vue-shims.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
