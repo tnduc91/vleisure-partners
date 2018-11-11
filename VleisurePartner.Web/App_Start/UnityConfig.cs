@@ -1,7 +1,13 @@
 using System;
+using System.Configuration;
 using System.Linq;
 using Unity;
+using Unity.AspNet.Mvc;
+using Unity.Injection;
 using Unity.RegistrationByConvention;
+using VleisurePartner.Domain;
+using VleisurePartner.EF;
+using VleisurePartner.Logic.Transport;
 using VleisurePartner.Web.App_Start;
 
 namespace VleisurePartner.Web.App_Start
@@ -37,6 +43,12 @@ namespace VleisurePartner.Web.App_Start
 
         private static void RegisterTypes(IUnityContainer container)
         {
+            container.RegisterType<IContext>(new PerRequestLifetimeManager(), new InjectionFactory(c =>
+            {
+                return new AppDbContext("VleisurePartnerDb");
+            }));
+
+            container.RegisterType<IEndPoint, EndPoint>(new InjectionConstructor(ConfigurationManager.AppSettings["vleisure:ApiEndPoint"]));
         }
 
 

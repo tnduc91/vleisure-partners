@@ -82,10 +82,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Configurations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VleisurePartner.Domain\VleisurePartner.Domain.csproj">
+      <Project>{20b9239e-9056-4fe2-aa57-4c4f6f0afa54}</Project>
+      <Name>VleisurePartner.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

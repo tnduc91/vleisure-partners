@@ -60,6 +60,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FluentValidation, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.8.0.100\lib\net45\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
     </Reference>
@@ -113,6 +116,12 @@
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.4.1\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Primitives, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Primitives.4.3.0\lib\net45\System.ComponentModel.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Configuration.ConfigurationManager.4.5.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
     </Reference>
@@ -134,6 +143,9 @@
     </Reference>
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -202,9 +214,6 @@
     <Reference Include="Unity.ServiceLocation, Version=2.1.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.5.8.11\lib\net46\Unity.ServiceLocation.dll</HintPath>
     </Reference>
-    <Reference Include="UnityDependencyResolver.Lib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UnityDependencyResolver.1.0.0\lib\net40\UnityDependencyResolver.Lib.dll</HintPath>
-    </Reference>
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
       <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
@@ -224,6 +233,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\CustomAuthorizeAttribute.cs" />
+    <Compile Include="Infrastructure\ProxyResult.cs" />
     <Compile Include="Infrastructure\Typescript\ITypeProxy.cs" />
     <Compile Include="Infrastructure\Typescript\TSActionIgnoreAttribute.cs" />
     <Compile Include="Infrastructure\Typescript\TSControllerIgnoreAttribute.cs" />
@@ -244,7 +254,7 @@
     <Content Include="favicon.ico" />
     <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="assets\css\Site.css" />
+    <None Include="assets\css\site.scss" />
     <Content Include="postcss.config.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -306,10 +316,7 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="tsconfig.json" />
     <Content Include="tslint.json" />
@@ -323,6 +330,11 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Unity.config" />
+    <Content Include="src\proxy\controllers.tst" />
+    <Content Include="src\proxy\enums.tst" />
+    <Content Include="src\proxy\models.tst" />
+    <Content Include="src\app\shared\modals\main.vue" />
+    <Content Include="src\app\home\main.vue" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -330,10 +342,7 @@
     <Folder Include="assets\js\" />
     <Folder Include="Models\" />
     <Folder Include="Services\" />
-    <Folder Include="src\app\" />
-    <Folder Include="src\infrastructure\" />
-    <Folder Include="src\proxy\" />
-    <Folder Include="src\shared\components\" />
+    <Folder Include="src\app\shared\components\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
@@ -350,6 +359,14 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\VleisurePartner.Domain\VleisurePartner.Domain.csproj">
+      <Project>{20B9239E-9056-4FE2-AA57-4C4F6F0AFA54}</Project>
+      <Name>VleisurePartner.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VleisurePartner.EF\VleisurePartner.EF.csproj">
+      <Project>{2F346257-10EF-48D8-A3BD-27ABBCACABFE}</Project>
+      <Name>VleisurePartner.EF</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VleisurePartner.Logic\VleisurePartner.Logic.csproj">
       <Project>{dcd24b55-b3bf-47a4-aa3a-6448e1ab436f}</Project>
       <Name>VleisurePartner.Logic</Name>
@@ -357,7 +374,25 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+    <TypeScriptCompile Include="src\infrastructure\config\config.ts" />
+    <TypeScriptCompile Include="src\infrastructure\config\router.ts" />
+    <TypeScriptCompile Include="src\infrastructure\OperationResult.ts" />
+    <TypeScriptCompile Include="src\infrastructure\transport\httpservice.ts" />
     <TypeScriptCompile Include="src\main.ts" />
+    <TypeScriptCompile Include="src\app\shared\filters\filters.ts" />
+    <TypeScriptCompile Include="src\app\shared\modals\stores\modalState.ts" />
+    <TypeScriptCompile Include="src\app\shared\modals\stores\modalStore.ts" />
+    <TypeScriptCompile Include="src\app\shared\modals\VueModal.ts" />
+    <TypeScriptCompile Include="src\app\shared\plugins\Dialogs\confirmDialog.ts" />
+    <TypeScriptCompile Include="src\app\shared\plugins\Dialogs\index.d.ts" />
+    <TypeScriptCompile Include="src\app\shared\plugins\Notification\index.d.ts" />
+    <TypeScriptCompile Include="src\app\shared\plugins\Notification\notification.ts" />
+    <TypeScriptCompile Include="src\proxy\HomeController.ts">
+      <DependentUpon>controllers.tst</DependentUpon>
+      <CustomToolNamespace>Controllers\HomeController.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\themes.ts" />
+    <TypeScriptCompile Include="src\vue-shims.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

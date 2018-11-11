@@ -88,12 +88,6 @@
   <ItemGroup>
     <Folder Include="Entities\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\VleisurePartner.EF\VleisurePartner.EF.csproj">
-      <Project>{2f346257-10ef-48d8-a3bd-27abbcacabfe}</Project>
-      <Name>VleisurePartner.EF</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
