@@ -25,7 +25,7 @@ var loadersForTs = [
 module.exports = {
     entry: {
         "main": "./src/main.ts",
-        "error": "./src/error.ts"
+        // "error": "./src/error.ts"
     },
     output: {
         path: path.resolve(__dirname, "./dist"),
