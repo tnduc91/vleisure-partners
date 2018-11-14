@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using FluentValidation.Results;
 using VleisurePartner.Logic;
-
 namespace VleisurePartner.Web.Infrastructure
 {
     public class ProxyResult : JsonResult

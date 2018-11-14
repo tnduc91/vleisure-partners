@@ -28,7 +28,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
-	<TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -116,6 +116,9 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp, Version=106.5.4.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.5.4\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ComponentModel.Annotations.4.4.1\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
@@ -127,6 +130,7 @@
       <HintPath>..\packages\System.Configuration.ConfigurationManager.4.5.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
@@ -241,7 +245,15 @@
     <Compile Include="Infrastructure\Typescript\TSPropertyIgnoreAttribute.cs" />
     <Compile Include="Infrastructure\Typescript\TSResponseTypeAttribute.cs" />
     <Compile Include="Infrastructure\WebPackManifest.cs" />
+    <Compile Include="Models\HotelListRequestModel.cs" />
+    <Compile Include="Models\HotelListResponseModel.cs" />
+    <Compile Include="Models\HotelResponseModel.cs" />
+    <Compile Include="Models\RequestBody.cs" />
+    <Compile Include="Models\RoomGuestRequestModel.cs" />
+    <Compile Include="OperationResultExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IVleisureApiRequest.cs" />
+    <Compile Include="Services\VleisureApiRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\bootstrap.css" />
@@ -252,6 +264,35 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="dist\app\shared\filters\filters.js" />
+    <Content Include="dist\app\shared\modals\stores\modalState.js" />
+    <Content Include="dist\app\shared\modals\stores\modalStore.js" />
+    <Content Include="dist\app\shared\modals\VueModal.js" />
+    <Content Include="dist\app\shared\plugins\Dialogs\confirmDialog.js" />
+    <Content Include="dist\app\shared\plugins\Notification\notification.js" />
+    <Content Include="dist\bundle.0.js" />
+    <Content Include="dist\fontawesome-webfont.svg" />
+    <Content Include="dist\fonts\fontawesome-webfont.svg" />
+    <Content Include="dist\infrastructure\config\config.js" />
+    <Content Include="dist\infrastructure\config\router.js" />
+    <Content Include="dist\infrastructure\OperationResult.js" />
+    <Content Include="dist\infrastructure\transport\httpservice.js" />
+    <Content Include="dist\main.js" />
+    <Content Include="dist\manifest.js" />
+    <Content Include="dist\proxy\HomeController.js" />
+    <Content Include="dist\skins\lightgray\content.inline.min.css" />
+    <Content Include="dist\skins\lightgray\content.min.css" />
+    <Content Include="dist\skins\lightgray\content.mobile.min.css" />
+    <Content Include="dist\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="dist\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="dist\skins\lightgray\img\anchor.gif" />
+    <Content Include="dist\skins\lightgray\img\loader.gif" />
+    <Content Include="dist\skins\lightgray\img\object.gif" />
+    <Content Include="dist\skins\lightgray\img\trans.gif" />
+    <Content Include="dist\skins\lightgray\skin.min.css" />
+    <Content Include="dist\skins\lightgray\skin.mobile.min.css" />
+    <Content Include="dist\themes.js" />
+    <Content Include="dist\vendor.js" />
     <Content Include="favicon.ico" />
     <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -282,6 +323,35 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="dist\0.js.map" />
+    <Content Include="dist\app\shared\filters\filters.js.map" />
+    <Content Include="dist\app\shared\modals\stores\modalState.js.map" />
+    <Content Include="dist\app\shared\modals\stores\modalStore.js.map" />
+    <Content Include="dist\app\shared\modals\VueModal.js.map" />
+    <Content Include="dist\app\shared\plugins\Dialogs\confirmDialog.js.map" />
+    <Content Include="dist\app\shared\plugins\Notification\notification.js.map" />
+    <Content Include="dist\bundle.0.js.map" />
+    <Content Include="dist\fonts\fontawesome-webfont.eot" />
+    <Content Include="dist\fonts\fontawesome-webfont.ttf" />
+    <Content Include="dist\fonts\fontawesome-webfont.woff" />
+    <Content Include="dist\fonts\fontawesome-webfont.woff2" />
+    <Content Include="dist\infrastructure\config\config.js.map" />
+    <Content Include="dist\infrastructure\config\router.js.map" />
+    <Content Include="dist\infrastructure\OperationResult.js.map" />
+    <Content Include="dist\infrastructure\transport\httpservice.js.map" />
+    <Content Include="dist\main.js.map" />
+    <Content Include="dist\manifest.js.map" />
+    <Content Include="dist\manifest.json" />
+    <Content Include="dist\proxy\HomeController.js.map" />
+    <Content Include="dist\skins\lightgray\fonts\tinymce-mobile.woff" />
+    <Content Include="dist\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="dist\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="dist\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="dist\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="dist\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="dist\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="dist\themes.js.map" />
+    <Content Include="dist\vendor.js.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -341,8 +411,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="assets\img\" />
     <Folder Include="assets\js\" />
-    <Folder Include="Models\" />
-    <Folder Include="Services\" />
     <Folder Include="src\app\shared\components\" />
   </ItemGroup>
   <ItemGroup>
