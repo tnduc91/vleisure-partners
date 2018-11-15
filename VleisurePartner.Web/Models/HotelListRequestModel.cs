@@ -9,7 +9,8 @@ namespace VleisurePartner.Web.Models
     {
         public string ArrivalDate { get; set; }
         public string DepartureDate { get; set; }
+        public string CityCode { get; set; }
         public IEnumerable<int> HotelIds { get; set; }
-        public IEnumerable<RoomGuestRequestModel> RoomGuests { get; set; }
+        public List<RoomGuestRequestModel> RoomGuests { get; set; }
     }
 }

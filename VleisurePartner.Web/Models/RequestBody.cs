@@ -8,8 +8,8 @@ namespace VleisurePartner.Web.Models
     public class RequestBody
     {
         // Dev private code {
-        public string SecretKey => "A0Zr98j/3yX R~XHH!jmN]LWX/,?RTC";
-        public string Signature => "e481c5fcf2c93c01e202afa6b44158b";
+        public string SecretKey => "NsPqcQMB7HJ632jJp4vm4DCb";
+        public string Signature => "VkJMN09YdDZ5TFN6RDV3ZSs5Vnd0dz09";
         // } Dev private code
     }
 }
