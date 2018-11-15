@@ -402,6 +402,10 @@
       <DependentUpon>controllers.tst</DependentUpon>
       <CustomToolNamespace>Controllers\HomeController.cs</CustomToolNamespace>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\HotelResponseModel.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\HotelResponseModel.cs</CustomToolNamespace>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\themes.ts" />
     <TypeScriptCompile Include="src\vue-shims.d.ts" />
   </ItemGroup>
