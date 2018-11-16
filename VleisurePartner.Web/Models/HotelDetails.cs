@@ -2,7 +2,7 @@
 
 namespace VleisurePartner.Web.Models
 {
-    public class HotelResponseModel : ITypeProxy
+    public class HotelDetails : ITypeProxy
     {
         public string HotelId { get; set; }
         public string Name { get; set; }

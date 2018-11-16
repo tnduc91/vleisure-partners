@@ -2,7 +2,7 @@
 /* tslint:disable */
 declare namespace ProxyModel{
     
-    export interface HotelResponseModel  {
+    export interface HotelDetails  {
         
         hotelId: string;
         name: string;

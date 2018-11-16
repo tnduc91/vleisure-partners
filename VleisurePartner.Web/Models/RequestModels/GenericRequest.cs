@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 
 namespace VleisurePartner.Web.Models
 {
-    public class RequestBody
+    public class GenericRequest
     {
         // Dev private code {
         public string SecretKey => "NsPqcQMB7HJ632jJp4vm4DCb";

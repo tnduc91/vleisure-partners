@@ -16,7 +16,6 @@ namespace VleisurePartner.Web.Controllers
 
         public ActionResult Index()
         {
-            var operationResult = _vleisureApiRequest.GetHotelList();
             return View();
         }
 
@@ -25,7 +24,7 @@ namespace VleisurePartner.Web.Controllers
         [HttpPost]
         public ProxyResult<HotelListResponseModel> SearchHotel()
         {
-            var operationResult = _vleisureApiRequest.GetHotelList();
+            var operationResult = _vleisureApiRequest.GetHotelList(new HotelListRequest());
 
             return operationResult.ToProxyResult();
         }

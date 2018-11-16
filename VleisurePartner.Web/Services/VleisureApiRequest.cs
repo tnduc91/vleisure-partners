@@ -3,34 +3,68 @@ using System;
 using VleisurePartner.Web.Models;
 using VleisurePartner.Logic;
 using System.Collections.Generic;
+using System.Web.Script.Serialization;
+
 namespace VleisurePartner.Web.Services
 {
     public class VleisureApiRequest : IVleisureApiRequest
     {
-        public OperationResult<HotelListResponseModel> GetHotelList()
+        private string ToJsonString(Object obj)
         {
-            RestClient client = new RestClient("https://hotels-dev.mekongleisuretravel.com/ihs/v2/list");
-            var requestBody = new HotelListRequestModel();
+            var jsonParam = new JavaScriptSerializer().Serialize(obj);
+            return jsonParam;
+        }
 
+        private RestRequest InitRestRequest(Object requestModel)
+        {
+            var jsonParam = ToJsonString(requestModel);
+
+            var request = new RestRequest
+            {
+                RequestFormat = DataFormat.Json,
+                Method = Method.POST
+            };
+
+            request.AddHeader("Accept", "application/json");
+            request.Parameters.Clear();
+            request.AddParameter("application/json", jsonParam, ParameterType.RequestBody);
+
+            return request;
+        }
+
+        public OperationResult<HotelListResponseModel> GetHotelList(HotelListRequest request)
+        {
+
+            var requestBody = new HotelListRequest();
             requestBody.CityCode = "";
             requestBody.ArrivalDate = "12/29/2018";
             requestBody.DepartureDate = "12/30/2018";
             requestBody.RoomGuests = new List<RoomGuestRequestModel>();
-            var roomguest = new RoomGuestRequestModel();
-            roomguest.NumberOfAdults = 1;
-            requestBody.RoomGuests.Add(roomguest);
+            requestBody.HotelIds = new List<int>() { 632882, 148036, 100502 };
 
-            var request = new RestRequest();
-            request.Method = Method.POST;
-            request.AddBody(requestBody);
-            var response = client.Execute<HotelListResponseModel>(request);
-            var data = response.Data;
-            if (!response.IsSuccessful)
+            var roomGuest = new RoomGuestRequestModel();
+            roomGuest.NumberOfAdults = 1;
+            requestBody.RoomGuests.Add(roomGuest);
+
+            var client = new RestClient("https://hotels-dev.mekongleisuretravel.com/ihs/v2/list");
+            var restRequest = InitRestRequest(requestBody);
+            var response = client.Execute(restRequest);
+            
+            if (response.IsSuccessful)
             {
-                return new OperationResult<HotelListResponseModel>(OperationResult.OperationStatus.GeneralError, response.ErrorMessage.ToString());
+                if (response.ContentType.Contains("application/json"))
+                {
+                    //var content = Newtonsoft.Json.JsonConvert.DeserializeObject<HotelListResponseModel>(response.Content);
+                    JavaScriptSerializer oJS = new JavaScriptSerializer();
+                    var hotelListResponse = new HotelListResponseModel();
+                    hotelListResponse = oJS.Deserialize<HotelListResponseModel>(response.Content);
+                    return new OperationResult<HotelListResponseModel>(hotelListResponse);
+                }
             }
 
-            return new OperationResult<HotelListResponseModel>(response.Data);
+            
+            return new OperationResult<HotelListResponseModel>(OperationResult.OperationStatus.GeneralError, response.ErrorMessage.ToString());
+
         }
         
     }

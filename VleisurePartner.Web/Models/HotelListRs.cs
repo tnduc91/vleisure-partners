@@ -6,9 +6,8 @@ using VleisurePartner.Web.Infrastructure.Typescript;
 
 namespace VleisurePartner.Web.Models
 {
-    public class HotelListResponseModel : ITypeProxy
-    { 
-        public string Status { get; set; }
-        public HotelListRs HotelListRs { get; set; }
+    public class HotelListRs : ITypeProxy
+    {
+        public List<HotelDetails> HotelSummary { get; set; }
     }
 }

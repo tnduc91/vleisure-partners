@@ -245,11 +245,12 @@
     <Compile Include="Infrastructure\Typescript\TSPropertyIgnoreAttribute.cs" />
     <Compile Include="Infrastructure\Typescript\TSResponseTypeAttribute.cs" />
     <Compile Include="Infrastructure\WebPackManifest.cs" />
-    <Compile Include="Models\HotelListRequestModel.cs" />
+    <Compile Include="Models\RequestModels\HotelListRequest.cs" />
     <Compile Include="Models\HotelListResponseModel.cs" />
-    <Compile Include="Models\HotelResponseModel.cs" />
-    <Compile Include="Models\RequestBody.cs" />
-    <Compile Include="Models\RoomGuestRequestModel.cs" />
+    <Compile Include="Models\HotelDetails.cs" />
+    <Compile Include="Models\HotelListRs.cs" />
+    <Compile Include="Models\RequestModels\GenericRequest.cs" />
+    <Compile Include="Models\RequestModels\RoomGuestRequestModel.cs" />
     <Compile Include="OperationResultExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IVleisureApiRequest.cs" />
@@ -402,9 +403,17 @@
       <DependentUpon>controllers.tst</DependentUpon>
       <CustomToolNamespace>Controllers\HomeController.cs</CustomToolNamespace>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="src\proxy\HotelResponseModel.ts">
+    <TypeScriptCompile Include="src\proxy\HotelDetails.ts">
       <DependentUpon>models.tst</DependentUpon>
-      <CustomToolNamespace>Models\HotelResponseModel.cs</CustomToolNamespace>
+      <CustomToolNamespace>Models\HotelDetails.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\HotelListResponseModel.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\HotelListResponseModel.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\HotelListRs.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\HotelListRs.cs</CustomToolNamespace>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\themes.ts" />
     <TypeScriptCompile Include="src\vue-shims.d.ts" />

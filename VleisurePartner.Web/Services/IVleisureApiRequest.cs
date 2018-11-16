@@ -5,6 +5,6 @@ namespace VleisurePartner.Web.Services
 {
     public interface IVleisureApiRequest
     {
-        OperationResult<HotelListResponseModel> GetHotelList();
+        OperationResult<HotelListResponseModel> GetHotelList(HotelListRequest request);
     }
 }
