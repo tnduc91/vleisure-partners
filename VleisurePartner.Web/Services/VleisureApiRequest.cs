@@ -34,20 +34,8 @@ namespace VleisurePartner.Web.Services
 
         public OperationResult<HotelListResponseModel> GetHotelList(HotelListRequest request)
         {
-
-            var requestBody = new HotelListRequest();
-            requestBody.CityCode = "";
-            requestBody.ArrivalDate = "12/29/2018";
-            requestBody.DepartureDate = "12/30/2018";
-            requestBody.RoomGuests = new List<RoomGuestRequestModel>();
-            requestBody.HotelIds = new List<int>() { 632882, 148036, 100502 };
-
-            var roomGuest = new RoomGuestRequestModel();
-            roomGuest.NumberOfAdults = 1;
-            requestBody.RoomGuests.Add(roomGuest);
-
             var client = new RestClient("https://hotels-dev.mekongleisuretravel.com/ihs/v2/list");
-            var restRequest = InitRestRequest(requestBody);
+            var restRequest = InitRestRequest(request);
             var response = client.Execute(restRequest);
             
             if (response.IsSuccessful)

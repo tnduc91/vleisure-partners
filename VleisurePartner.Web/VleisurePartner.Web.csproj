@@ -245,12 +245,16 @@
     <Compile Include="Infrastructure\Typescript\TSPropertyIgnoreAttribute.cs" />
     <Compile Include="Infrastructure\Typescript\TSResponseTypeAttribute.cs" />
     <Compile Include="Infrastructure\WebPackManifest.cs" />
+    <Compile Include="Models\ChargeableRateInfo.cs" />
+    <Compile Include="Models\RateInfo.cs" />
     <Compile Include="Models\RequestModels\HotelListRequest.cs" />
     <Compile Include="Models\HotelListResponseModel.cs" />
     <Compile Include="Models\HotelDetails.cs" />
     <Compile Include="Models\HotelListRs.cs" />
     <Compile Include="Models\RequestModels\GenericRequest.cs" />
     <Compile Include="Models\RequestModels\RoomGuestRequestModel.cs" />
+    <Compile Include="Models\RoomGroup.cs" />
+    <Compile Include="Models\RoomRateDetails.cs" />
     <Compile Include="OperationResultExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IVleisureApiRequest.cs" />
@@ -414,6 +418,18 @@
     <TypeScriptCompile Include="src\proxy\HotelListRs.ts">
       <DependentUpon>models.tst</DependentUpon>
       <CustomToolNamespace>Models\HotelListRs.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\RateInfo.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\RateInfo.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\RoomGroup.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\RoomGroup.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\RoomRateDetails.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\RoomRateDetails.cs</CustomToolNamespace>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\themes.ts" />
     <TypeScriptCompile Include="src\vue-shims.d.ts" />

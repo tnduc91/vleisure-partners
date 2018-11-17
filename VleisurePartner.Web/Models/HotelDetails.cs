@@ -1,4 +1,5 @@
-﻿using VleisurePartner.Web.Infrastructure.Typescript;
+﻿using System.Collections.Generic;
+using VleisurePartner.Web.Infrastructure.Typescript;
 
 namespace VleisurePartner.Web.Models
 {
@@ -29,5 +30,6 @@ namespace VleisurePartner.Web.Models
         public string ProximityUnit { get; set; }
         public string HotelInDestination { get; set; }
         public string ThumbNailUrl { get; set; }
+        public List<RoomRateDetails> RoomRateDetailsList { get; set; }
     }
 }
