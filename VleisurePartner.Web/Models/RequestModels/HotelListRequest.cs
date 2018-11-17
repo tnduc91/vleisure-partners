@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using VleisurePartner.Web.Infrastructure.Typescript;
 
-namespace VleisurePartner.Web.Models
+namespace VleisurePartner.Web.Models.RequestModels
 {
     public class HotelListRequest : GenericRequest, ITypeProxy
     {

@@ -4,8 +4,8 @@ declare namespace ProxyModel{
     
     export interface ValueAdd  {
         
-        id: number;
-        description: number;
+        id?: number;
+        description: string;
         }
     
 }

@@ -246,10 +246,11 @@
     <Compile Include="Infrastructure\Typescript\TSResponseTypeAttribute.cs" />
     <Compile Include="Infrastructure\WebPackManifest.cs" />
     <Compile Include="Models\ChargeableRateInfo.cs" />
+    <Compile Include="Models\HotelDetailsResponse.cs" />
     <Compile Include="Models\RateInfo.cs" />
     <Compile Include="Models\RequestModels\HotelDetailsRequest.cs" />
     <Compile Include="Models\RequestModels\HotelListRequest.cs" />
-    <Compile Include="Models\HotelListResponseModel.cs" />
+    <Compile Include="Models\HotelListResponse.cs" />
     <Compile Include="Models\HotelDetails.cs" />
     <Compile Include="Models\HotelListRs.cs" />
     <Compile Include="Models\RequestModels\GenericRequest.cs" />
@@ -425,13 +426,17 @@
       <DependentUpon>models.tst</DependentUpon>
       <CustomToolNamespace>Models\RequestModels\HotelDetailsRequest.cs</CustomToolNamespace>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\HotelDetailsResponse.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\HotelDetailsResponse.cs</CustomToolNamespace>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\proxy\HotelListRequest.ts">
       <DependentUpon>models.tst</DependentUpon>
       <CustomToolNamespace>Models\RequestModels\HotelListRequest.cs</CustomToolNamespace>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="src\proxy\HotelListResponseModel.ts">
+    <TypeScriptCompile Include="src\proxy\HotelListResponse.ts">
       <DependentUpon>models.tst</DependentUpon>
-      <CustomToolNamespace>Models\HotelListResponseModel.cs</CustomToolNamespace>
+      <CustomToolNamespace>Models\HotelListResponse.cs</CustomToolNamespace>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\proxy\HotelListRs.ts">
       <DependentUpon>models.tst</DependentUpon>

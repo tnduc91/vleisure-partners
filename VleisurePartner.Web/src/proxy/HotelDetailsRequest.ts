@@ -7,7 +7,7 @@ declare namespace ProxyModel{
         arrivalDate: string;
         departureDate: string;
         languageCode: string;
-        hotelId: string;
+        hotelId: number;
         roomGuests: RoomGuestRequestModel[];
         }
     

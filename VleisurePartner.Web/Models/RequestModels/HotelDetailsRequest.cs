@@ -11,7 +11,7 @@ namespace VleisurePartner.Web.Models.RequestModels
         public string ArrivalDate { get; set; }
         public string DepartureDate { get; set; }
         public string LanguageCode { get; set; }
-        public string HotelId { get; set; }
+        public int HotelId { get; set; }
         public List<RoomGuestRequestModel> RoomGuests { get; set; }
     }
 }
