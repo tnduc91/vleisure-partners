@@ -16,7 +16,6 @@ namespace VleisurePartner.Web.Models
         public int MinGuestAge { get; set; }
         public string[] RoomDescription { get; set; }
         public RateInfo RateInfos { get; set; }
-
-        public string ValueAdds { get; set; }
+        public List<ValueAdd> ValueAdds { get; set; }
     }
 }

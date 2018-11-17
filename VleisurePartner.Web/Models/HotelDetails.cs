@@ -30,6 +30,8 @@ namespace VleisurePartner.Web.Models
         public string ProximityUnit { get; set; }
         public string HotelInDestination { get; set; }
         public string ThumbNailUrl { get; set; }
+        public string CheckInInstructions { get; set; }
+        public string SpecialCheckInInstructions { get; set; }
         public List<RoomRateDetails> RoomRateDetailsList { get; set; }
     }
 }
