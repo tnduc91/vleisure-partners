@@ -29,6 +29,8 @@ declare namespace ProxyModel{
         proximityUnit: string;
         hotelInDestination: string;
         thumbNailUrl: string;
+        checkInInstructions: string;
+        specialCheckInInstructions: string;
         roomRateDetailsList: RoomRateDetails[];
         }
     

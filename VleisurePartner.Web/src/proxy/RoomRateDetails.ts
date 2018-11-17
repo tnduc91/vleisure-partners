@@ -12,7 +12,7 @@ declare namespace ProxyModel{
         minGuestAge: number;
         roomDescription: string[];
         rateInfos: RateInfo;
-        valueAdds: string;
+        valueAdds: ValueAdd[];
         }
     
 }
