@@ -403,6 +403,14 @@
     <TypeScriptCompile Include="src\app\shared\plugins\Dialogs\index.d.ts" />
     <TypeScriptCompile Include="src\app\shared\plugins\Notification\index.d.ts" />
     <TypeScriptCompile Include="src\app\shared\plugins\Notification\notification.ts" />
+    <TypeScriptCompile Include="src\proxy\ChargeableRateInfo.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\ChargeableRateInfo.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\GenericRequest.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\RequestModels\GenericRequest.cs</CustomToolNamespace>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\proxy\HomeController.ts">
       <DependentUpon>controllers.tst</DependentUpon>
       <CustomToolNamespace>Controllers\HomeController.cs</CustomToolNamespace>
@@ -410,6 +418,10 @@
     <TypeScriptCompile Include="src\proxy\HotelDetails.ts">
       <DependentUpon>models.tst</DependentUpon>
       <CustomToolNamespace>Models\HotelDetails.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\HotelListRequest.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\RequestModels\HotelListRequest.cs</CustomToolNamespace>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\proxy\HotelListResponseModel.ts">
       <DependentUpon>models.tst</DependentUpon>
@@ -426,6 +438,10 @@
     <TypeScriptCompile Include="src\proxy\RoomGroup.ts">
       <DependentUpon>models.tst</DependentUpon>
       <CustomToolNamespace>Models\RoomGroup.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\RoomGuestRequestModel.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\RequestModels\RoomGuestRequestModel.cs</CustomToolNamespace>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\proxy\RoomRateDetails.ts">
       <DependentUpon>models.tst</DependentUpon>
