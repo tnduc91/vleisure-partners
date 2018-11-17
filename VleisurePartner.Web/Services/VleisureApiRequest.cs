@@ -1,10 +1,9 @@
 ﻿using RestSharp;
 using System;
-using VleisurePartner.Web.Models;
 using VleisurePartner.Web.Models.RequestModels;
 using VleisurePartner.Logic;
-using System.Collections.Generic;
 using System.Web.Script.Serialization;
+using VleisurePartner.Web.Models.ResponseModels;
 
 namespace VleisurePartner.Web.Services
 {
@@ -50,7 +49,6 @@ namespace VleisurePartner.Web.Services
             {
                 if (response.ContentType.Contains("application/json"))
                 {
-                    //var content = Newtonsoft.Json.JsonConvert.DeserializeObject<HotelListResponseModel>(response.Content);
                     var hotelListResponse = _javaScriptScriptSerializer.Deserialize<HotelListResponse>(response.Content);
                     return new OperationResult<HotelListResponse>(hotelListResponse);
                 }
@@ -69,7 +67,6 @@ namespace VleisurePartner.Web.Services
             {
                 if (response.ContentType.Contains("application/json"))
                 {
-                    //var content = Newtonsoft.Json.JsonConvert.DeserializeObject<HotelListResponseModel>(response.Content);
                     var hotelDetailsResponse = _javaScriptScriptSerializer.Deserialize<HotelDetailsResponse>(response.Content);
                     return new OperationResult<HotelDetailsResponse>(hotelDetailsResponse);
                 }
