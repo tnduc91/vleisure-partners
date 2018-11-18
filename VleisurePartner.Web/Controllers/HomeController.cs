@@ -45,7 +45,7 @@ namespace VleisurePartner.Web.Controllers
 
             return operationResult.ToProxyResult();
         }
-
+        
         [HttpPost]
         public ProxyResult<HotelDetailsResponse> GetHotelDetails(HotelDetailsRequest req)
         {
