@@ -19,20 +19,21 @@ export class HomeController {
             });
         };
     
-        public list = (req: ProxyModel.HotelListRequest): Promise<OperationResult<ProxyModel.HotelListResponse>> => {
+        public getHotelList = (req: ProxyModel.HotelListRequest): Promise<OperationResult<ProxyModel.HotelListResponse>> => {
+            debugger;
             const route = `api/Home/`;
             return HttpService.Instance.request({
-                url: this.GetUrl(route, 'HomeController','List'),
+                url: this.GetUrl(route, 'HomeController','GetHotelList'),
                 method: "post",
                 data: req,
                 headers: {'X-Requested-With': 'XMLHttpRequest'}
             });
         };
     
-        public details = (req: ProxyModel.HotelDetailsRequest): Promise<OperationResult<ProxyModel.HotelDetailsResponse>> => {
+        public getHotelDetails = (req: ProxyModel.HotelDetailsRequest): Promise<OperationResult<ProxyModel.HotelDetailsResponse>> => {
             const route = `api/Home/`;
             return HttpService.Instance.request({
-                url: this.GetUrl(route, 'HomeController','Details'),
+                url: this.GetUrl(route, 'HomeController','GetHotelDetails'),
                 method: "post",
                 data: req,
                 headers: {'X-Requested-With': 'XMLHttpRequest'}

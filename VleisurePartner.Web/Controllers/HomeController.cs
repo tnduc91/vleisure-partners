@@ -19,38 +19,35 @@ namespace VleisurePartner.Web.Controllers
 
         public ActionResult Index()
         {
-            List(new HotelListRequest());
-            Details(new HotelDetailsRequest());
-
 
             return View();
         }
 
         [HttpPost]
-        public ProxyResult<HotelListResponse> List(HotelListRequest req)
+        public ProxyResult<HotelListResponse> GetHotelList(HotelListRequest req)
         {
-            var requestBody = new HotelListRequest
-            {
-                CityCode = "",
-                ArrivalDate = "12/29/2018",
-                DepartureDate = "12/30/2018",
-                RoomGuests = new List<RoomGuestRequestModel>(),
-                HotelIds = new int[]{
-                632882,
-                148036,
-                100502 }
-            };
-            var roomGuest = new RoomGuestRequestModel();
-            roomGuest.NumberOfAdults = 1;
-            requestBody.RoomGuests.Add(roomGuest);
+        //    var requestBody = new HotelListRequest
+        //    {
+        //        CityCode = "",
+        //        ArrivalDate = "12/29/2018",
+        //        DepartureDate = "12/30/2018",
+        //        RoomGuests = new List<RoomGuestRequestModel>(),
+        //        HotelIds = new int[]{
+        //        632882,
+        //        148036,
+        //        100502 }
+        //    };
+        //    var roomGuest = new RoomGuestRequestModel();
+        //    roomGuest.NumberOfAdults = 1;
+        //    requestBody.RoomGuests.Add(roomGuest);
             
-            var operationResult = _vleisureApiRequest.GetHotelList(requestBody);
+            var operationResult = _vleisureApiRequest.GetHotelList(req);
 
             return operationResult.ToProxyResult();
         }
 
         [HttpPost]
-        public ProxyResult<HotelDetailsResponse> Details(HotelDetailsRequest req)
+        public ProxyResult<HotelDetailsResponse> GetHotelDetails(HotelDetailsRequest req)
         {
             var requestBody = new HotelDetailsRequest
             {
