@@ -245,6 +245,8 @@
     <Compile Include="Infrastructure\Typescript\TSPropertyIgnoreAttribute.cs" />
     <Compile Include="Infrastructure\Typescript\TSResponseTypeAttribute.cs" />
     <Compile Include="Infrastructure\WebPackManifest.cs" />
+    <Compile Include="JsonNetActionFilter.cs" />
+    <Compile Include="JsonNetResult.cs" />
     <Compile Include="Models\ResponseModels\ChargeableRateInfo.cs" />
     <Compile Include="Models\ResponseModels\HotelDetailsResponse.cs" />
     <Compile Include="Models\ResponseModels\RateInfo.cs" />
@@ -260,8 +262,10 @@
     <Compile Include="Models\ResponseModels\ValueAdd.cs" />
     <Compile Include="OperationResultExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestHandlerActionResult.cs" />
     <Compile Include="Services\IVleisureApiRequest.cs" />
     <Compile Include="Services\VleisureApiRequest.cs" />
+    <Compile Include="StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\bootstrap.css" />

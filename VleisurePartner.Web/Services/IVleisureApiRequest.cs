@@ -7,7 +7,7 @@ namespace VleisurePartner.Web.Services
 {
     public interface IVleisureApiRequest
     {
-        OperationResult<HotelListResponse> GetHotelList(HotelListRequest request);
+        OperationResult<HotelListRs> GetHotelList(HotelListRequest request);
         OperationResult<HotelDetailsResponse> GetHotelDetails(HotelDetailsRequest request);
     }
 }

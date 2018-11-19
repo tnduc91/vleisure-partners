@@ -13,7 +13,7 @@ namespace VleisurePartner.Web.Models.RequestModels
         public string LanguageCode { get; set; }
         public string CityCode { get; set; }
         public IEnumerable<int> HotelIds { get; set; }
-        public List<RoomGuestRequestModel> RoomGuests { get; set; }
+        public IEnumerable<RoomGuestRequestModel> RoomGuests { get; set; }
 
      
     }

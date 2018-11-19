@@ -25,7 +25,7 @@ var loadersForTs = [
 module.exports = {
     devtool: true,
     entry: {
-        "main": "./src/main.ts",
+        "main": "./src/main.ts"
         // "error": "./src/error.ts"
     },
     output: {
@@ -135,11 +135,6 @@ module.exports = {
     },
     devtool: "hidden-source-map",
     plugins: [
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: '"production"'
-            }
-        }),
         new ForkTsCheckerWebpackPlugin({
             vue: true,
             checkSyntacticErrors: true,
