@@ -10,7 +10,6 @@ export class HttpService {
     }
 
     request<T>(httpConfig: AxiosRequestConfig): Promise<T> {
-        debugger;
         //httpConfig.url = this.getTenantUrl(httpConfig.url);
 
         if (httpConfig.method.toLowerCase() == "get") {
@@ -36,7 +35,6 @@ export class HttpService {
     }
 
     post(url: string, data?: any) {
-        debugger;
         return this.request({
             method: HttpRequestType[HttpRequestType.Post],
             url: url,

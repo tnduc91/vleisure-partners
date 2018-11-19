@@ -39,7 +39,7 @@ namespace VleisurePartner.Web.Services
             return request;
         }
 
-        public OperationResult<HotelListResponse> GetHotelList(HotelListRequest request)
+        public OperationResult<HotelListRs> GetHotelList(HotelListRequest request)
         {
             var client = new RestClient("https://hotels-dev.mekongleisuretravel.com/ihs/v2/list");
             var restRequest = InitRestRequest(request);
@@ -50,11 +50,14 @@ namespace VleisurePartner.Web.Services
                 if (response.ContentType.Contains("application/json"))
                 {
                     var hotelListResponse = _javaScriptScriptSerializer.Deserialize<HotelListResponse>(response.Content);
-                    return new OperationResult<HotelListResponse>(hotelListResponse);
+                    if (hotelListResponse.Status.ToLower().Contains("success"))
+                    {
+                        return new OperationResult<HotelListRs>(hotelListResponse.HotelListRs);
+                    }
                 }
             }
 
-            return new OperationResult<HotelListResponse>(OperationResult.OperationStatus.GeneralError, response.ErrorMessage.ToString());
+            return new OperationResult<HotelListRs>(OperationResult.OperationStatus.GeneralError, response.ErrorMessage.ToString());
         }
 
         public OperationResult<HotelDetailsResponse> GetHotelDetails(HotelDetailsRequest req)

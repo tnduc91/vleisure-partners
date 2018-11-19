@@ -13,7 +13,7 @@
     @Component
     export default class Home extends Vue {
         private homeController: HomeController = new HomeController();
-        private hotelListResponse: ProxyModel.HotelListResponse;
+        private hotelListRs: ProxyModel.HotelListRs;
 
         constructor() {
             super();
@@ -23,7 +23,6 @@
             this.getHotelList();
         }
         private getHotelList(): void {
-            debugger;
             let roomGuest: ProxyModel.RoomGuestRequestModel = {
                 numberOfAdults: 1,
                 numberOfChildren: 0,
@@ -49,7 +48,11 @@
             };
 
             this.homeController.getHotelList(req).then((responseFromWe) => {
-                debugger;
+                if (!responseFromWe.isSuccessful) {
+                    // Errors come from our code
+                } else {
+                    this.hotelListRs = responseFromWe.successData;
+                }
             });
         }
     }

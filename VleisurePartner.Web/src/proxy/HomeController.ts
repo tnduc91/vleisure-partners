@@ -19,7 +19,7 @@ export class HomeController {
             });
         };
     
-        public getHotelList = (req: ProxyModel.HotelListRequest): Promise<OperationResult<ProxyModel.HotelListResponse>> => {
+        public getHotelList = (req: ProxyModel.HotelListRequest): Promise<OperationResult<ProxyModel.HotelListRs>> => {
             const route = `api/Home/`;
             return HttpService.Instance.request({
                 url: this.GetUrl(route, 'HomeController','GetHotelList'),

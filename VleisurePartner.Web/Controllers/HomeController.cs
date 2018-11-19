@@ -24,7 +24,7 @@ namespace VleisurePartner.Web.Controllers
         }
 
         [HttpPost]
-        public ProxyResult<HotelListResponse> GetHotelList(HotelListRequest req)
+        public ProxyResult<HotelListRs> GetHotelList(HotelListRequest req)
         {
         //    var requestBody = new HotelListRequest
         //    {
@@ -42,6 +42,7 @@ namespace VleisurePartner.Web.Controllers
         //    requestBody.RoomGuests.Add(roomGuest);
             
             var operationResult = _vleisureApiRequest.GetHotelList(req);
+
 
             return operationResult.ToProxyResult();
         }
