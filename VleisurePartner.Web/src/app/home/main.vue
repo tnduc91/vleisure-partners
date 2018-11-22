@@ -1,6 +1,21 @@
 ﻿<template>
   <div>
-      <p>Home page</p>
+    <Header></Header>
+    <SearchBe></SearchBe>
+    <section class="grey-blue-bg small-padding" id="sec1">
+      <div class="container">
+        <div class="row">
+          <!--filter sidebar -->
+          <div class="col-md-8">
+            <ListHotel></ListHotel>
+          </div>
+          <div class="col-md-4">
+            <FilterHotel></FilterHotel>
+          </div>
+        </div>
+      </div>
+    </section>
+     <Footer></Footer>  
   </div>
 </template>
 
@@ -9,8 +24,21 @@
     import { HomeController } from "@proxy/HomeController";
     import OperationResult from "@src/infrastructure/OperationResult";
 
+    import Header from './header.vue';
+    import SearchBe from './searchbe.vue';
+    import ListHotel from './listhotel.vue';
+    import FilterHotel from './filterhotel.vue';
+    import Footer from './footer.vue';
 
-    @Component
+    @Component({
+       components: {
+        Header,
+        Footer,
+        ListHotel,
+        FilterHotel,
+        SearchBe
+        } 
+    })
     export default class Home extends Vue {
         private homeController: HomeController = new HomeController();
         private hotelListRs: ProxyModel.HotelListRs;
@@ -52,6 +80,7 @@
                     // Errors come from our code
                 } else {
                     this.hotelListRs = responseFromWe.successData;
+                    console.log(this.hotelListRs)
                 }
             });
         }
