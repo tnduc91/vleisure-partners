@@ -1,5 +1,6 @@
 ﻿using System.Web;
 using System.Web.Optimization;
+using VleisurePartner.Web.Infrastructure;
 
 namespace VleisurePartner.Web
 {
@@ -26,6 +27,19 @@ namespace VleisurePartner.Web
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            var manifest = WebPackManifest.GetManifest();
+            bundles.Add(new ScriptBundle("~/dist/error").Include(
+                $"~/dist/{manifest["manifest.js"]}",
+                $"~/dist/{manifest["vendor.js"]}",
+                $"~/dist/{manifest["error.js"]}"
+            ));
+
+            bundles.Add(new ScriptBundle("~/dist").Include(
+                $"~/dist/{manifest["manifest.js"]}",
+                $"~/dist/{manifest["vendor.js"]}",
+                $"~/dist/{manifest["main.js"]}"
+            ));
         }
     }
 }

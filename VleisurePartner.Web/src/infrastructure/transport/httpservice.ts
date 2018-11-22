@@ -10,7 +10,7 @@ export class HttpService {
     }
 
     request<T>(httpConfig: AxiosRequestConfig): Promise<T> {
-        httpConfig.url = this.getTenantUrl(httpConfig.url);
+        //httpConfig.url = this.getTenantUrl(httpConfig.url);
 
         if (httpConfig.method.toLowerCase() == "get") {
             httpConfig.params = httpConfig.data;
@@ -60,15 +60,15 @@ export class HttpService {
         }
     }
 
-    private getTenantUrl(url: string): string {
-        var tenant = AppConfig.Instance.getTenant().toLowerCase();
+    //private getTenantUrl(url: string): string {
+    //    var tenant = AppConfig.Instance.getTenant().toLowerCase();
 
-        if (location.pathname.toLowerCase().indexOf(`/${tenant}`) >= 0) {
-            return `/${tenant}/${url}`;
-        }
+    //    if (location.pathname.toLowerCase().indexOf(`/${tenant}`) >= 0) {
+    //        return `/${tenant}/${url}`;
+    //    }
 
-        return url;
-    }
+    //    return url;
+    //}
 
     private _isSigningOut: boolean = false;
 

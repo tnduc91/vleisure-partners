@@ -3,7 +3,7 @@
   "name": "vleisurepartner",
   "private": true,
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --display-entrypoints ",
     "release": "webpack --config webpack.release.js"
   },
   "dependencies": {

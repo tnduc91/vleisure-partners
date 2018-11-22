@@ -28,6 +28,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <TypeScriptToolsVersion>3.0</TypeScriptToolsVersion>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -115,6 +116,9 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp, Version=106.5.4.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.5.4\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ComponentModel.Annotations.4.4.1\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
@@ -126,6 +130,7 @@
       <HintPath>..\packages\System.Configuration.ConfigurationManager.4.5.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
@@ -240,7 +245,27 @@
     <Compile Include="Infrastructure\Typescript\TSPropertyIgnoreAttribute.cs" />
     <Compile Include="Infrastructure\Typescript\TSResponseTypeAttribute.cs" />
     <Compile Include="Infrastructure\WebPackManifest.cs" />
+    <Compile Include="JsonNetActionFilter.cs" />
+    <Compile Include="JsonNetResult.cs" />
+    <Compile Include="Models\ResponseModels\ChargeableRateInfo.cs" />
+    <Compile Include="Models\ResponseModels\HotelDetailsResponse.cs" />
+    <Compile Include="Models\ResponseModels\RateInfo.cs" />
+    <Compile Include="Models\RequestModels\HotelDetailsRequest.cs" />
+    <Compile Include="Models\RequestModels\HotelListRequest.cs" />
+    <Compile Include="Models\ResponseModels\HotelListResponse.cs" />
+    <Compile Include="Models\ResponseModels\HotelDetails.cs" />
+    <Compile Include="Models\ResponseModels\HotelListRs.cs" />
+    <Compile Include="Models\RequestModels\GenericRequest.cs" />
+    <Compile Include="Models\RequestModels\RoomGuestRequestModel.cs" />
+    <Compile Include="Models\ResponseModels\RoomGroup.cs" />
+    <Compile Include="Models\ResponseModels\RoomRateDetails.cs" />
+    <Compile Include="Models\ResponseModels\ValueAdd.cs" />
+    <Compile Include="OperationResultExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequestHandlerActionResult.cs" />
+    <Compile Include="Services\IVleisureApiRequest.cs" />
+    <Compile Include="Services\VleisureApiRequest.cs" />
+    <Compile Include="StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\bootstrap.css" />
@@ -340,8 +365,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="assets\img\" />
     <Folder Include="assets\js\" />
-    <Folder Include="Models\" />
-    <Folder Include="Services\" />
     <Folder Include="src\app\shared\components\" />
   </ItemGroup>
   <ItemGroup>
@@ -387,9 +410,61 @@
     <TypeScriptCompile Include="src\app\shared\plugins\Dialogs\index.d.ts" />
     <TypeScriptCompile Include="src\app\shared\plugins\Notification\index.d.ts" />
     <TypeScriptCompile Include="src\app\shared\plugins\Notification\notification.ts" />
+    <TypeScriptCompile Include="src\proxy\ChargeableRateInfo.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\ResponseModels\ChargeableRateInfo.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\GenericRequest.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\RequestModels\GenericRequest.cs</CustomToolNamespace>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\proxy\HomeController.ts">
       <DependentUpon>controllers.tst</DependentUpon>
       <CustomToolNamespace>Controllers\HomeController.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\HotelDetails.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\ResponseModels\HotelDetails.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\HotelDetailsRequest.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\RequestModels\HotelDetailsRequest.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\HotelDetailsResponse.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\ResponseModels\HotelDetailsResponse.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\HotelListRequest.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\RequestModels\HotelListRequest.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\HotelListResponse.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\ResponseModels\HotelListResponse.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\HotelListRs.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\ResponseModels\HotelListRs.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\RateInfo.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\ResponseModels\RateInfo.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\RoomGroup.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\ResponseModels\RoomGroup.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\RoomGuestRequestModel.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\RequestModels\RoomGuestRequestModel.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\RoomRateDetails.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\ResponseModels\RoomRateDetails.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\ValueAdd.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\ResponseModels\ValueAdd.cs</CustomToolNamespace>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\themes.ts" />
     <TypeScriptCompile Include="src\vue-shims.d.ts" />

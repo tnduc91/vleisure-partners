@@ -57,7 +57,7 @@ var appBaseUrl = window.location.origin;
 if (typeof location === "undefined") {
     appBaseUrl = window.location.protocol + "//" + window.location.host;
 }
-tinymce.baseURL = appBaseUrl + "/dist";
+tinymce.baseURL = appBaseUrl + "/dist/main.js";
 
 // fade in after render completed
 $("#app").fadeIn();

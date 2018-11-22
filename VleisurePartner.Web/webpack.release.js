@@ -1,8 +1,8 @@
 var webpackbase = require("./webpack.config");
 var webpack = require("webpack");
-var merge = require('webpack-merge')
+var merge = require('webpack-merge');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = merge(webpackbase, {
     devtool: false,

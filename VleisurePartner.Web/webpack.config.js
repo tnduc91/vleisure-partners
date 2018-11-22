@@ -23,9 +23,10 @@ var loadersForTs = [
 ];
 
 module.exports = {
+    devtool: true,
     entry: {
-        "main": "./src/main.ts",
-        "error": "./src/error.ts"
+        "main": "./src/main.ts"
+        // "error": "./src/error.ts"
     },
     output: {
         path: path.resolve(__dirname, "./dist"),
@@ -160,11 +161,15 @@ module.exports = {
                 return (
                     // it's inside node_modules
                     /node_modules/.test(module.context) &&
-                    // and not a CSS file (due to extract-text-webpack-plugin limitation)
-                    !/\.css$/.test(module.request)
-                )
+                        // and not a CSS file (due to extract-text-webpack-plugin limitation)
+                        !/\.css$/.test(module.request)
+                );
             }
         }),
+        //new webpack.optimize.CommonsChunkPlugin({
+        //    names: ['vendor', 'manifest'],
+        //    minChunks: 1
+        //}),
         // extract webpack runtime & manifest to avoid vendor chunk hash changing
         // on every build.
         new webpack.optimize.CommonsChunkPlugin({
