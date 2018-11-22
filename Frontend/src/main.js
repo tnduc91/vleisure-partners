@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App.vue'
 import HomePage  from './components/homepage/homepage.vue'
+import ListHotel from './components/listingpage/listhotel.vue'
 Vue.use(VueRouter)
 
 // The matching uses path-to-regexp, which is the matching engine used
@@ -13,7 +14,7 @@ const router = new VueRouter({
   routes: [
     { path: '/', component : HomePage },
     // params are denoted with a colon ":"
-    { path: '/params/:foo/:bar' },
+    { path: '/listing' , component: ListHotel },
     // a param can be made optional by adding "?"
     { path: '/optional-params/:foo?' },
     // a param can be followed by a regex pattern in parens

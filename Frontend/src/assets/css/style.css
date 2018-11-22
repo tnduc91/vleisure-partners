@@ -2570,6 +2570,7 @@ section.hero-section   {
 .main-register .filter-tags{
 	float:left;
 	margin-top:30px;
+	display: flex;
 }
 .main-register .filter-tags label{
 	color: #50596E !important;
@@ -8875,4 +8876,10 @@ section.hero-section  {
 	-webkit-background-size:cover;
 	background-position:center;
 }
+}
+
+ 
+/**custom style*/
+.fl-wrap.filter-tags {
+	display: flex;
 }

@@ -1,8 +1,8 @@
 <template>
- <div id="app">
+  <div id="app">
 
     <Header></Header>
-       <!--   <h1>Route Matching</h1>
+    <!--   <h1>Route Matching</h1>
       <ul>
         <li><router-link to="/">/</router-link></li>
         <li><router-link to="/params/foo/bar">/params/foo/bar</router-link></li>
@@ -17,33 +17,39 @@
       </ul>
       <p>Route context</p>
    <pre>{{ JSON.stringify($route, null, 2) }}</pre> -->
-      <router-view></router-view>
-
-      <Footer></Footer>
+    <div id="wrapper">
+      <!-- content-->
+      <div class="content">
+        <router-view></router-view>
+      </div>
+      <!-- content end-->
     </div>
+    <!--wrapper end -->
+    <Footer></Footer>
+  </div>
 </template>
 
 <script>
-import Header from './components/header.vue'
-import Footer from './components/footer.vue'
+  import Header from './components/header.vue'
+  import Footer from './components/footer.vue'
 
-export default {
-  name: 'app',
-  components: {
-    // HelloWorld,
-    Header,
-    Footer
+  export default {
+    name: 'app',
+    components: {
+      // HelloWorld,
+      Header,
+      Footer
+    }
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    /* margin-top: 60px; */
+  }
 </style>
