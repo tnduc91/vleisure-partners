@@ -8,10 +8,10 @@
         <div class="row">
           <!--filter sidebar -->
           <div class="col-md-8">
-            <listHotel></listHotel>
+            <listHotel  ></listHotel>
           </div>
           <div class="col-md-4">
-            <filterHotel></filterHotel>
+            <filterHotel    ></filterHotel>
           </div>
         </div>
       </div>
@@ -30,6 +30,10 @@
       listHotel,
       filterHotel
 
-    }
+    },
+     
+    methods: {
+      
+  }
   }
 </script>

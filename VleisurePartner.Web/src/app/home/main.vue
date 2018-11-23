@@ -79,6 +79,7 @@
                 if (!responseFromWe.isSuccessful) {
                     // Errors come from our code
                 } else {
+
                     this.hotelListRs = responseFromWe.successData;
                     console.log(this.hotelListRs)
                 }

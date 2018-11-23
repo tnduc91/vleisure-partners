@@ -701,8 +701,8 @@ function initCitybook() {
             },
             removeOffsets: true,
             limit: function () {
-                var a = $(".limit-box").offset().top - $(".fixed-bar").outerHeight();
-                return a;
+                // var a = $(".limit-box").offset().top - $(".fixed-bar").outerHeight();
+                // return a;
             }
         });
     } else $(".fixed-bar").removeClass("fixbar-action");

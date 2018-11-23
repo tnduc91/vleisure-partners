@@ -6,7 +6,7 @@
                 <div class="header-top fl-wrap">
                     <div class="container">
                         <div class="logo-holder">
-                            <a href="index.html"><img src="assets/images/logo.png" alt=""></a>
+                            <a href="/"><img src="assets/images/logo.png" alt=""></a>
                         </div>                  
                         <div class="show-reg-form modal-open"><i class="fa fa-sign-in"></i>Sign In</div>
                         <div class="lang-wrap">
