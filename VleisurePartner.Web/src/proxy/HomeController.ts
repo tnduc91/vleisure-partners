@@ -39,6 +39,16 @@ export class HomeController {
             });
         };
     
+        public getRegions = (searchString: string): Promise<OperationResult<ProxyModel.RegionViewModel[]>> => {
+            const route = `api/Home/?searchString=${encodeURIComponent(searchString)}`;
+            return HttpService.Instance.request({
+                url: this.GetUrl(route, 'HomeController','GetRegions'),
+                method: "post",
+                data: null,
+                headers: {'X-Requested-With': 'XMLHttpRequest'}
+            });
+        };
+    
     
     
     private GetUrl(route: string, controller : string,  action : string): string {

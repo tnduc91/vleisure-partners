@@ -1,11 +1,13 @@
 ﻿using System.Data.Entity;
 using VleisurePartner.Domain;
+using VleisurePartner.Domain.Entities;
+using VleisurePartner.EF.Configurations;
 
 namespace VleisurePartner.EF
 {
     public class AppDbContext : DbContext, IContext
     {
-        //public IDbSet<Accpac> Accpacs { get; set; } // Accpac
+        public System.Data.Entity.DbSet<Region> Regions { get; set; } // Region
 
         public AppDbContext(string nameOrConnectionString) : base(nameOrConnectionString)
         {
@@ -16,7 +18,7 @@ namespace VleisurePartner.EF
         {
             base.OnModelCreating(modelBuilder);
 
-            //modelBuilder.Configurations.Add(new AccpacConfiguration());
+            modelBuilder.Configurations.Add(new RegionConfiguration());
         }
 
         public void SetCommandTimeout(int timeout)

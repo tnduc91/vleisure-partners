@@ -1,8 +1,11 @@
-﻿namespace VleisurePartner.Domain
+﻿using System.Data.Entity;
+using VleisurePartner.Domain.Entities;
+
+namespace VleisurePartner.Domain
 {
     public interface IContext
     {
-        //IDbSet<Accpac> Accpacs { get; set; } // Accpac
+        DbSet<Region> Regions { get; set; }
 
         int SaveChanges();
         void SetCommandTimeout(int timeout);

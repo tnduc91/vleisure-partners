@@ -48,12 +48,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppDbContext.cs">
+      <DependentUpon>DbGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppDbContextFactory.cs">
+      <DependentUpon>DbGenerator.tt</DependentUpon>
+    </Compile>
     <Compile Include="DbGenerator.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DbGenerator.tt</DependentUpon>
     </Compile>
+    <Compile Include="FakeAppDbContext.cs">
+      <DependentUpon>DbGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FakeDbSet.cs">
+      <DependentUpon>DbGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IAppDbContext.cs">
+      <DependentUpon>DbGenerator.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Region.cs">
+      <DependentUpon>DbGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RegionConfiguration.cs">
+      <DependentUpon>DbGenerator.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="DbGenerator.tt">
