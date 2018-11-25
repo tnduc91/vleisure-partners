@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <!--col-list-wrap -->
     <div class="col-list-wrap fw-col-list-wrap post-container">
       <!-- list-main-wrap-->
@@ -12,6 +13,9 @@
           <!-- price-opt-->
           <div class="price-opt">
             <span class="price-opt-title">Sort results by:</span>
+
+
+            <v-select  class="chosen-select no-search-select" v-model="selected" :options="['foo','bar']"></v-select>
             <div class="listsearch-input-item">
               <select data-placeholder="Popularity" class="chosen-select no-search-select">
                 <option>Popularity</option>
@@ -39,7 +43,8 @@
             <article class="geodir-category-listing fl-wrap">
               <div class="geodir-category-img">
                 <a href="listing-single.html"><img src="assets/images/gal/1.jpg" alt=""></a>
-                <div class="listing-avatar"><a href="author-single.html"><img src="assets/images/avatar/1.jpg" alt=""></a>
+                <div class="listing-avatar">
+                  <a href="author-single.html"><img src="assets/images/avatar/1.jpg" alt=""></a>
                   <span class="avatar-tooltip">Added By <strong>Alisa Noory</strong></span>
                 </div>
                 <div class="sale-window">Sale 20%</div>
@@ -55,8 +60,12 @@
                 <div class="geodir-category-content-title fl-wrap">
                   <div class="geodir-category-content-title-item">
                     <h3 class="title-sin_map"><a href="listing-single.html">Premium Plaza Hotel</a></h3>
-                    <div class="geodir-category-location fl-wrap"><a href="#" class="map-item"><i class="fas fa-map-marker-alt"></i>
-                        27th Brooklyn New York, USA</a></div>
+                    <div class="geodir-category-location fl-wrap">
+                      <a href="#" class="map-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        27th Brooklyn New York, USA
+                      </a>
+                    </div>
                   </div>
                 </div>
                 <p>Sed interdum metus at nisi tempor laoreet. Integer gravida orci a justo sodales.</p>
@@ -69,11 +78,16 @@
                 <div class="geodir-category-footer fl-wrap">
                   <div class="geodir-category-price">Awg/Night <span>$ 320</span></div>
                   <div class="geodir-opt-list">
-                    <a href="#" class="single-map-item" data-newlatitude="40.72956781" data-newlongitude="-73.99726866"><i
-                        class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map</span></a>
+                    <a href="#" class="single-map-item" data-newlatitude="40.72956781" data-newlongitude="-73.99726866">
+                      <i class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map</span>
+                    </a>
                     <a href="#" class="geodir-js-favorite"><i class="fal fa-heart"></i><span class="geodir-opt-tooltip">Save</span></a>
-                    <a href="#" class="geodir-js-booking"><i class="fal fa-exchange"></i><span class="geodir-opt-tooltip">Find
-                        Directions</span></a>
+                    <a href="#" class="geodir-js-booking">
+                      <i class="fal fa-exchange"></i><span class="geodir-opt-tooltip">
+                        Find
+                        Directions
+                      </span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -85,7 +99,8 @@
             <article class="geodir-category-listing fl-wrap">
               <div class="geodir-category-img">
                 <a href="listing-single.html"><img src="assets/images/gal/1.jpg" alt=""></a>
-                <div class="listing-avatar"><a href="author-single.html"><img src="assets/images/avatar/1.jpg" alt=""></a>
+                <div class="listing-avatar">
+                  <a href="author-single.html"><img src="assets/images/avatar/1.jpg" alt=""></a>
                   <span class="avatar-tooltip">Added By <strong>Julie Cramp</strong></span>
                 </div>
                 <div class="sale-window big-sale">Sale 50%</div>
@@ -101,8 +116,12 @@
                 <div class="geodir-category-content-title fl-wrap">
                   <div class="geodir-category-content-title-item">
                     <h3 class="title-sin_map"><a href="listing-single.html">Grand Hero Palace</a></h3>
-                    <div class="geodir-category-location fl-wrap"><a href="#" class="map-item"><i class="fas fa-map-marker-alt"></i>
-                        W 85th St, New York, USA</a></div>
+                    <div class="geodir-category-location fl-wrap">
+                      <a href="#" class="map-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        W 85th St, New York, USA
+                      </a>
+                    </div>
                   </div>
                 </div>
                 <p> Morbi suscipit erat in diam bibendum rutrum in nisl. Aliquam et purus ante.</p>
@@ -117,11 +136,16 @@
                     <div class="geodir-category-price">Awg/Night <span>$ 120</span></div>
                   </div>
                   <div class="geodir-opt-list">
-                    <a href="#" class="single-map-item" data-newlatitude="40.76221766" data-newlongitude="-73.96511769"><i
-                        class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map</span></a>
+                    <a href="#" class="single-map-item" data-newlatitude="40.76221766" data-newlongitude="-73.96511769">
+                      <i class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map</span>
+                    </a>
                     <a href="#" class="geodir-js-favorite"><i class="fal fa-heart"></i><span class="geodir-opt-tooltip">Save</span></a>
-                    <a href="#" class="geodir-js-booking"><i class="fal fa-exchange"></i><span class="geodir-opt-tooltip">Find
-                        Directions</span></a>
+                    <a href="#" class="geodir-js-booking">
+                      <i class="fal fa-exchange"></i><span class="geodir-opt-tooltip">
+                        Find
+                        Directions
+                      </span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -133,7 +157,8 @@
             <article class="geodir-category-listing fl-wrap">
               <div class="geodir-category-img">
                 <a href="listing-single.html"><img src="assets/images/gal/1.jpg" alt=""></a>
-                <div class="listing-avatar"><a href="author-single.html"><img src="assets/images/avatar/1.jpg" alt=""></a>
+                <div class="listing-avatar">
+                  <a href="author-single.html"><img src="assets/images/avatar/1.jpg" alt=""></a>
                   <span class="avatar-tooltip">Added By <strong>Andy Moore</strong></span>
                 </div>
                 <div class="geodir-category-opt">
@@ -148,8 +173,12 @@
                 <div class="geodir-category-content-title fl-wrap">
                   <div class="geodir-category-content-title-item">
                     <h3 class="title-sin_map"><a href="listing-single.html">Park Central</a></h3>
-                    <div class="geodir-category-location fl-wrap"><a href="#" class="map-item"><i class="fas fa-map-marker-alt"></i>40
-                        Journal Square Plaza, NJ, USA</a></div>
+                    <div class="geodir-category-location fl-wrap">
+                      <a href="#" class="map-item">
+                        <i class="fas fa-map-marker-alt"></i>40
+                        Journal Square Plaza, NJ, USA
+                      </a>
+                    </div>
                   </div>
                 </div>
                 <p> Sed tempor iaculis massa faucibus feugiat. In fermentum facilisis massa.</p>
@@ -164,11 +193,16 @@
                     <div class="geodir-category-price">Awg/Night <span>$ 80</span></div>
                   </div>
                   <div class="geodir-opt-list">
-                    <a href="#" class="single-map-item" data-newlatitude="40.88496706" data-newlongitude="-73.88191222"><i
-                        class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map</span></a>
+                    <a href="#" class="single-map-item" data-newlatitude="40.88496706" data-newlongitude="-73.88191222">
+                      <i class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map</span>
+                    </a>
                     <a href="#" class="geodir-js-favorite"><i class="fal fa-heart"></i><span class="geodir-opt-tooltip">Save</span></a>
-                    <a href="#" class="geodir-js-booking"><i class="fal fa-exchange"></i><span class="geodir-opt-tooltip">Find
-                        Directions</span></a>
+                    <a href="#" class="geodir-js-booking">
+                      <i class="fal fa-exchange"></i><span class="geodir-opt-tooltip">
+                        Find
+                        Directions
+                      </span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -180,7 +214,8 @@
             <article class="geodir-category-listing fl-wrap">
               <div class="geodir-category-img">
                 <a href="listing-single.html"><img src="assets/images/gal/1.jpg" alt=""></a>
-                <div class="listing-avatar"><a href="author-single.html"><img src="assets/images/avatar/1.jpg" alt=""></a>
+                <div class="listing-avatar">
+                  <a href="author-single.html"><img src="assets/images/avatar/1.jpg" alt=""></a>
                   <span class="avatar-tooltip">Added By <strong>Mary Jones</strong></span>
                 </div>
                 <div class="sale-window">Sale 20%</div>
@@ -196,8 +231,12 @@
                 <div class="geodir-category-content-title fl-wrap">
                   <div class="geodir-category-content-title-item">
                     <h3 class="title-sin_map"><a href="listing-single.html">Holiday Home</a></h3>
-                    <div class="geodir-category-location fl-wrap"><a href="#" class="map-item"><i class="fas fa-map-marker-alt"></i>
-                        75 Prince St, NY, USA</a></div>
+                    <div class="geodir-category-location fl-wrap">
+                      <a href="#" class="map-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        75 Prince St, NY, USA
+                      </a>
+                    </div>
                   </div>
                 </div>
                 <p> Mauris ac maximus neque. Nam in mauris quis libero sodales eleifend.</p>
@@ -212,11 +251,16 @@
                     <div class="geodir-category-price">Awg/Night <span>$ 50</span></div>
                   </div>
                   <div class="geodir-opt-list">
-                    <a href="#" class="single-map-item" data-newlatitude="40.72228267" data-newlongitude="-73.99246214"><i
-                        class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map</span></a>
+                    <a href="#" class="single-map-item" data-newlatitude="40.72228267" data-newlongitude="-73.99246214">
+                      <i class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map</span>
+                    </a>
                     <a href="#" class="geodir-js-favorite"><i class="fal fa-heart"></i><span class="geodir-opt-tooltip">Save</span></a>
-                    <a href="#" class="geodir-js-booking"><i class="fal fa-exchange"></i><span class="geodir-opt-tooltip">Find
-                        Directions</span></a>
+                    <a href="#" class="geodir-js-booking">
+                      <i class="fal fa-exchange"></i><span class="geodir-opt-tooltip">
+                        Find
+                        Directions
+                      </span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -228,7 +272,8 @@
             <article class="geodir-category-listing fl-wrap">
               <div class="geodir-category-img">
                 <a href="listing-single.html"><img src="assets/images/gal/1.jpg" alt=""></a>
-                <div class="listing-avatar"><a href="author-single.html"><img src="assets/images/avatar/1.jpg" alt=""></a>
+                <div class="listing-avatar">
+                  <a href="author-single.html"><img src="assets/images/avatar/1.jpg" alt=""></a>
                   <span class="avatar-tooltip">Added By <strong>Fider Mamby</strong></span>
                 </div>
                 <div class="sale-window">Sale 10%</div>
@@ -244,8 +289,12 @@
                 <div class="geodir-category-content-title fl-wrap">
                   <div class="geodir-category-content-title-item">
                     <h3 class="title-sin_map"><a href="listing-single.html">Gold Plaza Hotel</a></h3>
-                    <div class="geodir-category-location fl-wrap"><a href="#" class="map-item"><i class="fas fa-map-marker-alt"></i>
-                        34-42 Montgomery St , NY, USA</a></div>
+                    <div class="geodir-category-location fl-wrap">
+                      <a href="#" class="map-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        34-42 Montgomery St , NY, USA
+                      </a>
+                    </div>
                   </div>
                 </div>
                 <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec tincidunt arcu, sit amet . </p>
@@ -260,11 +309,16 @@
                     <div class="geodir-category-price">Awg/Night <span>$ 210</span></div>
                   </div>
                   <div class="geodir-opt-list">
-                    <a href="#" class="single-map-item" data-newlatitude="40.94982541" data-newlongitude="-73.84357452"><i
-                        class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map</span></a>
+                    <a href="#" class="single-map-item" data-newlatitude="40.94982541" data-newlongitude="-73.84357452">
+                      <i class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map</span>
+                    </a>
                     <a href="#" class="geodir-js-favorite"><i class="fal fa-heart"></i><span class="geodir-opt-tooltip">Save</span></a>
-                    <a href="#" class="geodir-js-booking"><i class="fal fa-exchange"></i><span class="geodir-opt-tooltip">Find
-                        Directions</span></a>
+                    <a href="#" class="geodir-js-booking">
+                      <i class="fal fa-exchange"></i><span class="geodir-opt-tooltip">
+                        Find
+                        Directions
+                      </span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -276,7 +330,8 @@
             <article class="geodir-category-listing fl-wrap">
               <div class="geodir-category-img">
                 <a href="listing-single.html"><img src="assets/images/gal/1.jpg" alt=""></a>
-                <div class="listing-avatar"><a href="author-single.html"><img src="assets/images/avatar/1.jpg" alt=""></a>
+                <div class="listing-avatar">
+                  <a href="author-single.html"><img src="assets/images/avatar/1.jpg" alt=""></a>
                   <span class="avatar-tooltip">Added By <strong>Alisa Noory</strong></span>
                 </div>
                 <div class="sale-window big-sale">Sale 70%</div>
@@ -292,8 +347,12 @@
                 <div class="geodir-category-content-title fl-wrap">
                   <div class="geodir-category-content-title-item">
                     <h3 class="title-sin_map"><a href="listing-single.html">Moonlight Hotel</a></h3>
-                    <div class="geodir-category-location fl-wrap"><a href="#" class="map-item"><i class="fas fa-map-marker-alt"></i>
-                        70 Bright St New York, USA</a></div>
+                    <div class="geodir-category-location fl-wrap">
+                      <a href="#" class="map-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        70 Bright St New York, USA
+                      </a>
+                    </div>
                   </div>
                 </div>
                 <p> Class aptent taciti Mauris ac maximus neque. Nam in mauris quis libero sodales eleifend.</p>
@@ -308,11 +367,16 @@
                     <div class="geodir-category-price">Awg/Night <span>$ 105</span></div>
                   </div>
                   <div class="geodir-opt-list">
-                    <a href="#" class="single-map-item" data-newlatitude="40.90261483" data-newlongitude="-74.15737152"><i
-                        class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map</span></a>
+                    <a href="#" class="single-map-item" data-newlatitude="40.90261483" data-newlongitude="-74.15737152">
+                      <i class="fal fa-map-marker-alt"></i><span class="geodir-opt-tooltip">On the map</span>
+                    </a>
                     <a href="#" class="geodir-js-favorite"><i class="fal fa-heart"></i><span class="geodir-opt-tooltip">Save</span></a>
-                    <a href="#" class="geodir-js-booking"><i class="fal fa-exchange"></i><span class="geodir-opt-tooltip">Find
-                        Directions</span></a>
+                    <a href="#" class="geodir-js-booking">
+                      <i class="fal fa-exchange"></i><span class="geodir-opt-tooltip">
+                        Find
+                        Directions
+                      </span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -335,6 +399,7 @@
     import { Component, Prop, Vue, Watch } from "vue-property-decorator";
     @Component
     export default class ListHotel extends Vue {
+      private selected: "";
         constructor() {
             super();
         }

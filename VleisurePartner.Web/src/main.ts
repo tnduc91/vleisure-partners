@@ -33,6 +33,10 @@ Vue.use(VeeValidate, { fieldsBagName: "formFields" });
 Vue.use(Notification as PluginObject<Vue>);
 Vue.use(ConfirmDialog as PluginObject<Vue>);
 
+ 
+import vSelect from 'vue-select'
+Vue.component('v-select', vSelect)
+
 const store = new Vuex.Store({
     modules: {
         modalStore: ModalStore,

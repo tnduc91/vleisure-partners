@@ -15,7 +15,8 @@
         </div>
       </div>
     </section>
-     <Footer></Footer>  
+     <Footer></Footer> 
+     <v-select v-model="selected" :options="['foo','bar']"></v-select>
   </div>
 </template>
 
@@ -42,7 +43,8 @@
     export default class Home extends Vue {
         private homeController: HomeController = new HomeController();
         private hotelListRs: ProxyModel.HotelListRs;
-
+        private selected: "";
+       
         constructor() {
             super();
         }

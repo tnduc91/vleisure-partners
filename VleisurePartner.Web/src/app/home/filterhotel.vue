@@ -29,7 +29,7 @@
           <label>Destination</label>
           <span class="header-search-input-item-icon"><i class="fal fa-map-marker-alt"></i></span>
           <input type="text" placeholder="Destination or Hotel Name" class="autocomplete-input" id="autocompleteid3"
-            value="" />
+                 value="" />
           <a href="#"><i class="fal fa-dot-circle"></i></a>
         </div>
         <!--col-list-search-input-item end-->
@@ -67,7 +67,7 @@
           <div class="range-slider-title">Price range</div>
           <div class="range-slider-wrap fl-wrap">
             <input class="range-slider" data-from="300" data-to="1200" data-step="50" data-min="50" data-max="2000"
-              data-prefix="$">
+                   data-prefix="$">
           </div>
         </div>
         <!--col-list-search-input-item end-->
@@ -79,18 +79,36 @@
             <ul class="fl-wrap filter-tags">
               <li class="five-star-rating">
                 <input id="check-aa2" type="checkbox" name="check" checked>
-                <label for="check-aa2"><span class="listing-rating card-popup-rainingvis" data-starrating2="5"><span>5
-                      Stars</span></span></label>
+                <label for="check-aa2">
+                  <span class="listing-rating card-popup-rainingvis" data-starrating2="5">
+                    <span>
+                      5
+                      Stars
+                    </span>
+                  </span>
+                </label>
               </li>
               <li class="four-star-rating">
                 <input id="check-aa3" type="checkbox" name="check">
-                <label for="check-aa3"><span class="listing-rating card-popup-rainingvis" data-starrating2="5"><span>4
-                      Star</span></span></label>
+                <label for="check-aa3">
+                  <span class="listing-rating card-popup-rainingvis" data-starrating2="5">
+                    <span>
+                      4
+                      Star
+                    </span>
+                  </span>
+                </label>
               </li>
               <li class="three-star-rating">
                 <input id="check-aa4" type="checkbox" name="check">
-                <label for="check-aa4"><span class="listing-rating card-popup-rainingvis" data-starrating2="5"><span>3
-                      Star</span></span></label>
+                <label for="check-aa4">
+                  <span class="listing-rating card-popup-rainingvis" data-starrating2="5">
+                    <span>
+                      3
+                      Star
+                    </span>
+                  </span>
+                </label>
               </li>
             </ul>
             <!-- Checkboxes end -->
@@ -143,7 +161,9 @@
         <!--col-list-search-input-item end-->
       </div>
     </div>
+     
   </div>
+
   <!--filter sidebar end-->
 </template>
 
@@ -151,10 +171,36 @@
 
 <script lang="ts">
     import { Component, Prop, Vue, Watch } from "vue-property-decorator";
+
     @Component
     export default class FilterHotel extends Vue {
         constructor() {
             super();
         }
+    
+        let countries = ['Afghanistan', 'Åland Islands', 'Albania', 'Algeria', 'American Samoa', 'AndorrA', 'Angola', 'Anguilla', 'Antarctica', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bermuda', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Bouvet Island', 'Brazil', 'British Indian Ocean Territory', 'Brunei Darussalam', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cambodia', 'Cameroon', 'Canada', 'Cape Verde', 'Cayman Islands', 'Central African Republic', 'Chad', 'Chile', 'China', 'Christmas Island', 'Cocos (Keeling) Islands', 'Colombia', 'Comoros', 'Congo', 'Congo, The Democratic Republic of the', 'Cook Islands', 'Costa Rica', 'Cote D\'Ivoire', 'Croatia', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Ethiopia', 'Falkland Islands (Malvinas)', 'Faroe Islands', 'Fiji', 'Finland', 'France', 'French Guiana', 'French Polynesia', 'French Southern Territories', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Gibraltar', 'Greece', 'Greenland', 'Grenada', 'Guadeloupe', 'Guam', 'Guatemala', 'Guernsey', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Heard Island and Mcdonald Islands', 'Holy See (Vatican City State)', 'Honduras', 'Hong Kong', 'Hungary', 'Iceland', 'India']
+      
+          query: '',
+          countries: countries;
+          selectedCountry: null;
+          options: {};
+        
+  
+        onCountryInputChange (query) {
+          if (query.trim().length === 0) {
+            return null
+          }
+          // return the matching countries as an array
+          return this.countries.filter((country) => {
+            return country.toLowerCase().includes(query.toLowerCase())
+          })
+        },
+        onCountrySelected (item) {
+          this.selectedCountry = item
+        },
+        onSearchItemSelected (item) {
+          this.selectedSearchItem = item
+        }
+     
     }
 </script>

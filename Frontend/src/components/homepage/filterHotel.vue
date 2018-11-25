@@ -9,12 +9,15 @@
         <!--col-list-search-input-item -->
         <div class="col-list-search-input-item in-loc-dec fl-wrap not-vis-arrow">
           <label>YOUR FAVORITE HOTEL</label>
-          <div class="listsearch-input-item"  >
-            <select v-model="filter.favorite" @input="selectFavorite"  @click="selectFavorite" data-placeholder="City" 
+           <div class="listsearch-input-item"  >
+            <v-select  label="name" v-model="filter.favorite" :options="hotelListRS"   ></v-select>
+
+ 
+            <!-- <select v-model="filter.favorite" @input="selectFavorite"  @click="selectFavorite" data-placeholder="City" 
             class="chosen-selects form-control">
               <option value="">None </option>
               <option  :value="favorite.hotelId" v-for="favorite in hotelListRS">{{favorite.name}}</option>
-            </select>
+            </select> -->
           </div>
         </div>
         <!--col-list-search-input-item end-->
@@ -22,10 +25,23 @@
         <!--col-list-search-input-item -->
         <div class="col-list-search-input-item fl-wrap">
           <div class="range-slider-title">Price range</div>
-          <div class="range-slider-wrap fl-wrap">
-            <input class="range-slider" data-from="300" data-to="1200" data-step="50" data-min="50" data-max="2000"
-              data-prefix="$">
-          </div>
+             <!-- Checkboxes -->
+              <ul class="fl-wrap filter-tags">
+                
+                <li class="five-star-rating">
+                  <input id="check-aaa5" type="checkbox" name="check" checked>
+                  <label for="check-aaa5">Free WiFi</label>
+                </li>
+                <li class="five-star-rating"  v-for="(price)  in priceRanger">
+                  <input id="price.from" type="checkbox" name="check">
+                  <label for="price.from">From {{price.from}} VND to {{price.to}} VND </label>
+                </li>
+                <li>
+                  <input id="check-dd5" type="checkbox" name="check">
+                  <label for="check-dd5">Fitness Center</label>
+                </li>
+              </ul>
+              <!-- Checkboxes end -->
         </div>
         <!--col-list-search-input-item end-->
         <!--col-list-search-input-item -->
@@ -126,6 +142,7 @@ export default {
             rating : []
           },
           favorites  : [],
+          priceRanger : [],
             hotelListRS : 
            [
             {
@@ -2179,12 +2196,15 @@ export default {
         },
         methods : {
         selectFavorite(val){
+          console.log(this.filter);
              serverBus.$emit('serverSelected', this.filter);
         }
         },
         created : function()  {
-          //  this.favorites = this.hotelListRS.map(h=> {return {hotelId :  h.hotelId , name : h.name }});
-          //   console.log(this.favorites);
+         for(var i =1 ; i<20;i++){
+            this.priceRanger.push({from: 500000*i, to: 500000*(i+1)});
+         }
+          
         },
          watch: {
       	filter: {

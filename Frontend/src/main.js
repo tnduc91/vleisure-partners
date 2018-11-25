@@ -8,9 +8,9 @@ Vue.use(VueRouter)
 
 
 export const serverBus = new Vue();
-
-
-
+ 
+import vSelect from 'vue-select'
+Vue.component('v-select', vSelect)
 
 // The matching uses path-to-regexp, which is the matching engine used
 // by express as well, so the same matching rules apply.
