@@ -12,7 +12,7 @@ declare namespace ProxyModel{
         nonRefundable: boolean;
         promoDescription: string;
         currentAllotment: string;
-        cancellationList: string;
+        cancellationList: Cancellation[];
         }
     
 }

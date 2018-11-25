@@ -16,6 +16,6 @@ namespace VleisurePartner.Web.Models.ResponseModels
         public bool NonRefundable { get; set; }
         public string PromoDescription { get; set; }
         public string CurrentAllotment { get; set; }
-        public string CancellationList { get; set; }
+        public IEnumerable<Cancellation> CancellationList { get; set; }
     }
 }

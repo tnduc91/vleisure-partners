@@ -11,6 +11,7 @@ declare namespace ProxyModel{
         quotedRoomOccupancy: number;
         minGuestAge: number;
         roomDescription: string[];
+        bedTypes: BedType[];
         rateInfos: RateInfo;
         valueAdds: ValueAdd[];
         }

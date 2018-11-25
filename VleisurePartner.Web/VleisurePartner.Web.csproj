@@ -248,7 +248,11 @@
     <Compile Include="JsonNetActionFilter.cs" />
     <Compile Include="JsonNetResult.cs" />
     <Compile Include="Models\RegionViewModel.cs" />
+    <Compile Include="Models\RequestModels\RoomAvailabilityRequest.cs" />
+    <Compile Include="Models\ResponseModels\BedType.cs" />
+    <Compile Include="Models\ResponseModels\Cancellation.cs" />
     <Compile Include="Models\ResponseModels\ChargeableRateInfo.cs" />
+    <Compile Include="Models\ResponseModels\RoomAvailabilityResponse.cs" />
     <Compile Include="Models\ResponseModels\HotelDetailsResponse.cs" />
     <Compile Include="Models\ResponseModels\RateInfo.cs" />
     <Compile Include="Models\RequestModels\HotelDetailsRequest.cs" />
@@ -411,6 +415,14 @@
     <TypeScriptCompile Include="src\app\shared\plugins\Dialogs\index.d.ts" />
     <TypeScriptCompile Include="src\app\shared\plugins\Notification\index.d.ts" />
     <TypeScriptCompile Include="src\app\shared\plugins\Notification\notification.ts" />
+    <TypeScriptCompile Include="src\proxy\BedType.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\ResponseModels\BedType.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\Cancellation.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\ResponseModels\Cancellation.cs</CustomToolNamespace>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="src\proxy\ChargeableRateInfo.ts">
       <DependentUpon>models.tst</DependentUpon>
       <CustomToolNamespace>Models\ResponseModels\ChargeableRateInfo.cs</CustomToolNamespace>
@@ -430,6 +442,14 @@
     <TypeScriptCompile Include="src\proxy\HotelDetailsRequest.ts">
       <DependentUpon>models.tst</DependentUpon>
       <CustomToolNamespace>Models\RequestModels\HotelDetailsRequest.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\RoomAvailabilityRequest.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\RequestModels\RoomAvailabilityRequest.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\RoomAvailabilityResponse.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\ResponseModels\RoomAvailabilityResponse.cs</CustomToolNamespace>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\proxy\HotelDetailsResponse.ts">
       <DependentUpon>models.tst</DependentUpon>

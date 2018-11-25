@@ -15,6 +15,7 @@ namespace VleisurePartner.Web.Models.ResponseModels
         public int QuotedRoomOccupancy { get; set; }
         public int MinGuestAge { get; set; }
         public string[] RoomDescription { get; set; }
+        public IEnumerable<BedType> BedTypes { get; set; }
         public RateInfo RateInfos { get; set; }
         public List<ValueAdd> ValueAdds { get; set; }
     }
