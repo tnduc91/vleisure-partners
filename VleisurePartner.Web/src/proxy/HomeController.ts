@@ -39,6 +39,16 @@ export class HomeController {
             });
         };
     
+        public getRoomAvailability = (req: ProxyModel.RoomAvailabilityRequest): Promise<OperationResult<ProxyModel.RoomAvailabilityResponse>> => {
+            const route = `api/Home/`;
+            return HttpService.Instance.request({
+                url: this.GetUrl(route, 'HomeController','GetRoomAvailability'),
+                method: "post",
+                data: req,
+                headers: {'X-Requested-With': 'XMLHttpRequest'}
+            });
+        };
+    
         public getRegions = (searchString: string): Promise<OperationResult<ProxyModel.RegionViewModel[]>> => {
             const route = `api/Home/?searchString=${encodeURIComponent(searchString)}`;
             return HttpService.Instance.request({

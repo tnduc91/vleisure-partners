@@ -9,5 +9,6 @@ namespace VleisurePartner.Web.Services
     {
         OperationResult<HotelListRs> GetHotelList(HotelListRequest request);
         OperationResult<HotelDetailsResponse> GetHotelDetails(HotelDetailsRequest request);
+        OperationResult<RoomAvailabilityResponse> GetRoomAvailability(RoomAvailabilityRequest request);
     }
 }

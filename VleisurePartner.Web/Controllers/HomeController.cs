@@ -73,6 +73,15 @@ namespace VleisurePartner.Web.Controllers
         }
 
         [HttpPost]
+        public ProxyResult<RoomAvailabilityResponse> GetRoomAvailability(RoomAvailabilityRequest req)
+        {
+            var operationResult = _vleisureApiRequest.GetRoomAvailability(req);
+
+
+            return operationResult.ToProxyResult();
+        }
+
+        [HttpPost]
         public ProxyResult<IEnumerable<RegionViewModel>> GetRegions(string searchString)
         {
             var regions = _appDbContext.Regions

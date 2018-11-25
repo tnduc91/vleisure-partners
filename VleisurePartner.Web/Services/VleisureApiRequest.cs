@@ -79,5 +79,22 @@ namespace VleisurePartner.Web.Services
 
         }
 
+        public OperationResult<RoomAvailabilityResponse> GetRoomAvailability(RoomAvailabilityRequest request)
+        {
+            var client = new RestClient("https://hotels-dev.mekongleisuretravel.com/ihs/v2/roomavail");
+            var restRequest = InitRestRequest(request);
+            var response = client.Execute(restRequest);
+
+            if (response.IsSuccessful)
+            {
+                if (response.ContentType.Contains("application/json"))
+                {
+                    var roomAvailabilityResponse = _javaScriptScriptSerializer.Deserialize<RoomAvailabilityResponse>(response.Content);
+                    return new OperationResult<RoomAvailabilityResponse>(roomAvailabilityResponse);
+                }
+            }
+
+            return new OperationResult<RoomAvailabilityResponse>(OperationResult.OperationStatus.GeneralError, response.ErrorMessage.ToString());
+        }
     }
 }
