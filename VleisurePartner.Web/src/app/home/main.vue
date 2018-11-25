@@ -43,14 +43,15 @@
                 roomGuests: roomGuestList,
                 languageCode: "",
                 cityCode: "",
-                secretKey: "NsPqcQMB7HJ632jJp4vm4DCb",
-                signature: "VkJMN09YdDZ5TFN6RDV3ZSs5Vnd0dz09"
+                secretKey: "",
+                signature: ""
             };
 
             this.homeController.getHotelList(req).then((responseFromWe) => {
                 if (!responseFromWe.isSuccessful) {
                     // Errors come from our code
                 } else {
+                    debugger;
                     this.hotelListRs = responseFromWe.successData;
                 }
             });

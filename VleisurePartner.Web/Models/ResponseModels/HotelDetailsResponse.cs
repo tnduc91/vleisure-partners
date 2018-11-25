@@ -9,6 +9,5 @@ namespace VleisurePartner.Web.Models.ResponseModels
     {
         public string Status { get; set; }
         public HotelDetails RoomAvailRs { get; set; }
-
     }
 }
