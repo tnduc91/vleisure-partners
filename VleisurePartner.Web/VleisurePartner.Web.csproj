@@ -247,6 +247,7 @@
     <Compile Include="Infrastructure\WebPackManifest.cs" />
     <Compile Include="JsonNetActionFilter.cs" />
     <Compile Include="JsonNetResult.cs" />
+    <Compile Include="Models\RegionViewModel.cs" />
     <Compile Include="Models\ResponseModels\ChargeableRateInfo.cs" />
     <Compile Include="Models\ResponseModels\HotelDetailsResponse.cs" />
     <Compile Include="Models\ResponseModels\RateInfo.cs" />
@@ -449,6 +450,10 @@
     <TypeScriptCompile Include="src\proxy\RateInfo.ts">
       <DependentUpon>models.tst</DependentUpon>
       <CustomToolNamespace>Models\ResponseModels\RateInfo.cs</CustomToolNamespace>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="src\proxy\RegionViewModel.ts">
+      <DependentUpon>models.tst</DependentUpon>
+      <CustomToolNamespace>Models\RegionViewModel.cs</CustomToolNamespace>
     </TypeScriptCompile>
     <TypeScriptCompile Include="src\proxy\RoomGroup.ts">
       <DependentUpon>models.tst</DependentUpon>

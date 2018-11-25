@@ -13,15 +13,19 @@
     @Component
     export default class Home extends Vue {
         private homeController: HomeController = new HomeController();
+
         private hotelListRs: ProxyModel.HotelListRs;
+        private regions: Array<ProxyModel.RegionViewModel>;
 
         constructor() {
             super();
         }
 
         mounted(): void{
-            this.getHotelList();
+            //this.getHotelList();
+            this.getRegions("ho Chi MINh");
         }
+
         private getHotelList(): void {
             let roomGuest: ProxyModel.RoomGuestRequestModel = {
                 numberOfAdults: 1,
@@ -51,8 +55,16 @@
                 if (!responseFromWe.isSuccessful) {
                     // Errors come from our code
                 } else {
-                    debugger;
                     this.hotelListRs = responseFromWe.successData;
+                }
+            });
+        }
+
+        private getRegions(searchString: string) {
+            this.homeController.getRegions(searchString).then(res => {
+                if (res.isSuccessful) {
+                    debugger;
+                    this.regions = res.successData;
                 }
             });
         }

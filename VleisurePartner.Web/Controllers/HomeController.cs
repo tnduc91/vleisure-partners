@@ -1,5 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
+using VleisurePartner.Domain;
+using VleisurePartner.EF;
 using VleisurePartner.Web.Models;
 using VleisurePartner.Web.Models.RequestModels;
 using VleisurePartner.Web.Infrastructure;
@@ -11,10 +14,13 @@ namespace VleisurePartner.Web.Controllers
     public class HomeController : Controller
     {
         private readonly IVleisureApiRequest _vleisureApiRequest;
+        private readonly IContext _appDbContext;
 
-        public HomeController(IVleisureApiRequest vleisureApiRequest)
+        public HomeController(IVleisureApiRequest vleisureApiRequest,
+            IContext appDbContext)
         {
             _vleisureApiRequest = vleisureApiRequest;
+            _appDbContext = appDbContext;
         }
 
         public ActionResult Index()
@@ -65,5 +71,26 @@ namespace VleisurePartner.Web.Controllers
 
             return operationResult.ToProxyResult();
         }
+
+        [HttpPost]
+        public ProxyResult<IEnumerable<RegionViewModel>> GetRegions(string searchString)
+        {
+            var regions = _appDbContext.Regions
+                .Where(x => x.RegionNameLong.Contains(searchString))
+                .ToList()
+                .Select(x =>
+                
+                    new RegionViewModel
+                    {
+                        RegionId = x.RegionId,
+                        RegionNameLong = x.RegionNameLong
+                    }
+                )
+                .OrderBy(x => x.RegionNameLong.Length)
+                .ToList();
+
+            return ProxyResult<IEnumerable<RegionViewModel>>.Success(regions);
+        }
+        
     }
 }
